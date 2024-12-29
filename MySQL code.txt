@@ -1,0 +1,26 @@
+create database library_system;
+
+use library_system;
+
+create table books (
+    book_id int auto_increment primary key,
+    title varchar(100),
+    author varchar(100),
+    available boolean default true
+);
+
+create table users (
+    user_id int auto_increment primary key,
+    username varchar(50),
+    password varchar(50)
+);
+
+create table activity (
+    activity_id int auto_increment primary key,
+    user_id int,
+    book_id int,
+    borrow_date date,
+    return_date date
+);
+
+insert into users (username, password) values ('testuser', 'testpassword');
